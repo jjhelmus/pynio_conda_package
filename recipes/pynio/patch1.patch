@@ -1,0 +1,113 @@
+--- setup.py.orig	2015-05-05 12:05:42.460593519 -0500
++++ setup.py	2015-05-05 12:31:04.296604738 -0500
+@@ -21,12 +21,12 @@
+ #
+ # to the parent locations of the NetCDF-3 installations.
+ #
+-# Note: you must at least set one XXXX_PREFIX environment variable. 
+-# If all the other software is installed in this same root directory, 
++# Note: you must at least set one XXXX_PREFIX environment variable.
++# If all the other software is installed in this same root directory,
+ # then you don't need to set any of the other XXXX_PREFIX variables.
+ #
+ # You can optionally build PyNIO with NetCDF-4, HDF4, HDF-EOS2, HDF-EOS5, HDF5,
+-# GRIB2 and/or shapefile (using the GDAL library) support.  To do this, 
++# GRIB2 and/or shapefile (using the GDAL library) support.  To do this,
+ # the corresponding environment variables:
+ #
+ #    HAS_NETCDF4
+@@ -44,7 +44,7 @@
+ #    HDF5_PREFIX
+ #    HDFEOS_PREFIX
+ #    HDFEOS5_PREFIX
+-#    GRIB2_PREFIX 
++#    GRIB2_PREFIX
+ #    GDAL_PREFIX
+ #
+ # must be set to the root location of that software, unless they are
+@@ -158,7 +158,7 @@
+     LIB_MACROS.append(('USE_NETCDF4_FEATURES', None))
+     try:
+       HAS_OPENDAP = int(os.environ["HAS_OPENDAP"])
+-    except:    
++    except:
+       HAS_OPENDAP = 1
+     if HAS_OPENDAP > 0:
+       set_curl_libs()
+@@ -202,7 +202,7 @@
+   if HAS_GRIB2 > 0:
+     LIBRARIES.append('grib2c')
+     LIBRARIES.append('jasper')
+-    LIBRARIES.append('jpeg')   # png is needed again, b/c it 
++    LIBRARIES.append('jpeg')   # png is needed again, b/c it
+     LIBRARIES.append('png')    # must come after jasper
+     LIB_MACROS.append(('BuildGRIB2', None))
+     # This should test whether the system is 64 bits or not
+@@ -275,12 +275,12 @@
+   HAS_GDAL = int(os.environ["HAS_GDAL"])
+   if HAS_GDAL > 0:
+     LIBRARIES.append('gdal')
+-    LIBRARIES.append('proj') 
+-#   LIBRARIES.append('iconv') 
+-    LIBRARIES.append('jasper')   # png is needed again, b/c it 
+-    LIBRARIES.append('jpeg')   # png is needed again, b/c it 
++    LIBRARIES.append('proj')
++#   LIBRARIES.append('iconv')
++    LIBRARIES.append('jasper')   # png is needed again, b/c it
++    LIBRARIES.append('jpeg')   # png is needed again, b/c it
+     LIBRARIES.append('png')      # must come after jasper
+-    LIBRARIES.append('iconv')      # must come after jasper
++    #LIBRARIES.append('iconv')      # must come after jasper
+     LIB_MACROS.append(('BuildGDAL', None))
+     try:
+       LIB_DIRS.append(os.path.join(os.environ["GDAL_PREFIX"],"lib"))
+@@ -415,7 +415,7 @@
+ del(APPEND_UNDERSCORE)
+ del(NO_APPEND_UNDERSCORE)
+ del(CAPS_NO_APPEND_UNDERSCORE)
+-    
++
+ #----------------------------------------------------------------------
+ #
+ # Set some variables.
+@@ -471,7 +471,7 @@
+     files  = os.listdir('libsrc')
+     sources = [ file for file in files if file.endswith('.c') or file.endswith('.f') ]
+ 
+-    for file in LIB_EXCLUDE_SOURCES: 
++    for file in LIB_EXCLUDE_SOURCES:
+       sources.remove(file)
+     sources = [ join('libsrc', file) for file in sources ]
+ 
+@@ -481,7 +481,7 @@
+                        extra_compiler_args = [ '-O0 -g', '-w' ]
+ #                       extra_compiler_args = [ '-O2', '-w' ]
+                        )
+-    
++
+     sources = ['niomodule.c']
+ 
+     config.add_extension('nio',
+@@ -491,7 +491,6 @@
+                          define_macros = DMACROS,
+                          library_dirs  = LIB_DIRS,
+                          extra_objects = EXTRA_OBJECTS,
+-                         language = 'c++'
+                          )
+     return config
+ 
+@@ -511,7 +510,7 @@
+   print "\n\n\nNew pkgs_pth = ", pkgs_pth
+   print "\n\n\n"
+ #pkgs_pth = '/usr/local/lib/python2.7/site-packages/PyNIO'
+- 
++
+ #print data_files
+ setup (version      = pynio_version,
+        description  = 'Multi-format data I/O package',
+@@ -532,4 +531,4 @@
+ 
+ print "\n\n\nNew pkgs_pth = ", pkgs_pth
+ print "\n\n\n"
+- 
++

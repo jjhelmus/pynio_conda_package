@@ -7,8 +7,11 @@ source:
     url: file:///vagrant/vendor/PyNIO-1.5.0-beta.tar.gz
     md5: 88c64d1196ce820a5a172cf1c0cce781
 
+    patches:
+        - patch1.patch
 build:
     number: 0
+
 
 requirements:
     build:
@@ -22,6 +25,9 @@ requirements:
         - system
         - jpeg
         - libpng
+        - gdal
+        - proj4
+        - jasper
 
     run:
         - python
@@ -34,6 +40,9 @@ requirements:
         - system
         - jpeg
         - libpng
+        - gdal
+        - proj4
+        - jasper
 
 test:
     imports:
