@@ -1,0 +1,18 @@
+package:
+  name: hdfeos2
+  version: !!str 2.18
+
+source:
+  fn:  HDF-EOS2.19v1.00.tar
+  url: file:///vagrant/vendor/HDF-EOS2.19v1.00.tar
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - hdf4
+    run:
+        - hdf4
+about:
+  home: http://www.hdfeos.org/index.php 
