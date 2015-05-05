@@ -30,6 +30,7 @@ requirements:
         - jasper
         - hdfeos2
         - hdfeos5
+        - g2clib
 
     run:
         - python
