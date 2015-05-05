@@ -1,0 +1,23 @@
+package:
+  name: hdfeos5
+  version: !!str 5.1.15
+
+source:
+  fn:  HDF-EOS5.1.15.tar
+  url: file:///vagrant/vendor/HDF-EOS5.1.15.tar
+
+  patches:
+      # patch issue when hdf5 is not linked to szip
+      # http://hdfeos.org/forums/showthread.php?t=673
+      - patch1.patch
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - hdf5
+    run:
+        - hdf5
+about:
+  home: http://www.hdfeos.org/index.php 
