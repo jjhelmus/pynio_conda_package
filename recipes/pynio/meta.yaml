@@ -1,0 +1,44 @@
+package:
+    name: pynio
+    version: 1.5.0b
+
+source:
+    fn: PyNIO-1.5.0-beta.tar.gz
+    url: file:///vagrant/vendor/PyNIO-1.5.0-beta.tar.gz
+    md5: 88c64d1196ce820a5a172cf1c0cce781
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - numpy
+        - libnetcdf
+        - zlib
+        - hdf5
+        - hdf4
+        - szip
+        - system
+        - jpeg
+        - libpng
+
+    run:
+        - python
+        - numpy
+        - libnetcdf
+        - zlib
+        - hdf5
+        - hdf4
+        - szip
+        - system
+        - jpeg
+        - libpng
+
+test:
+    imports:
+        - PyNIO
+        - PyNIO.nio
+
+about:
+    license: BSD
