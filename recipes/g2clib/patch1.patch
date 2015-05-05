@@ -1,0 +1,23 @@
+--- makefile.orig	2015-05-05 14:47:38.908665147 -0500
++++ makefile	2015-05-05 14:55:26.672668596 -0500
+@@ -17,7 +17,7 @@
+ #     can be found (jasper/*.h and png.h pngconf.h zconf.h zlib.h)
+ #
+ 
+-INC=-I/export/lnx102/wd42bv/jasper-1.900.1/src/libjasper/include
++INC=-I$(PREFIX)/include
+ 
+ #
+ #   This "C" source code contains many uses of the C++
+@@ -25,9 +25,9 @@
+ #   appropriate compiler flag to allow the use of "//" comment indicators.
+ #
+ 
+-CFLAGS= $(INC) $(DEFS)
++CFLAGS= $(INC) $(DEFS) -m64 -pipe -O2 -march=x86-64 -fPIC
+ 
+-CC=cc
++CC=gcc
+ 
+ LIB=libgrib2c.a
+ ARFLAGS=
